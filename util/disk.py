@@ -1,7 +1,14 @@
 import gzip
 
-from diskcache import FanoutCache, Disk
-from diskcache.core import BytesType, MODE_BINARY, BytesIO
+#the follow two line have bugs 
+#from diskcache import FanoutCache, Disk
+#from diskcache.core import BytesType, MODE_BINARY, BytesIO
+# replace with following codes will ok Pytorch16 python3.7
+from cassandra.cqltypes import BytesType
+from diskcache import FanoutCache, Disk,core
+from diskcache.core import io
+from io import BytesIO
+from diskcache.core import MODE_BINARY
 
 from util.logconf import logging
 log = logging.getLogger(__name__)
